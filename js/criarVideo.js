@@ -7,13 +7,11 @@ async function criarVideo(evento) {
     const imagem = document.querySelector("[data-imagem]").value;
     const url = document.querySelector("[data-url]").value;
     const titulo = document.querySelector("[data-titulo]").value;
-    const descricao = Math.floor(Math.random() * 10).toString();
-try {
-    await conectaApi.criaVideo(titulo, descricao, url, imagem);
+    const descricao = Math.floor(Math.random() *10).toString();
 
-    window.location.href = "../pages/envio-concluido.html";
-} catch(e){
-    alert(e);
+   await conectaApi.criaVideo(titulo, descricao, url, imagem);
+
+   window.location.href = "../pages/envio-concluido.html";
 }
-}
-formulario.addEventListener("submit", evento => criarVideo(evento))
+
+formulario.addEventListener("submit", evento => criarVideo(evento));
